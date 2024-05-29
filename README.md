@@ -37,9 +37,9 @@ python3 convert_fasta_file_to_one_line_file $file.fasta > converted_fasta_file.o
 The input for the tools is the converted fasta file. What patterns are searched for is described at ....
 
 Using the walk process:
-Running command:
+
 ```python
-python3 Search_using_OT_index.py converted_fasta_file.oneline
+python3 Search_by_walk.py converted_fasta_file.oneline
 ```
 
 Sample Output
@@ -75,7 +75,6 @@ Found matching node 12407-8
 ```
 
 Using OT index:
-Running command:
 ```python
 python3 Search_using_OT_index.py converted_fasta_file.oneline
 ```
