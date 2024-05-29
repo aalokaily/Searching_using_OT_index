@@ -1,4 +1,4 @@
-# Searching pattern under any internal node in suffix trees
+# Searching for a pattern under any internal node in suffix trees in logn time
 
 ------------------------------------------------------------- Prerequisite ---------------------------------------------------------------
 * Install bisect library from https://docs.python.org/3/library/bisect.html 
