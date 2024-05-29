@@ -1,4 +1,6 @@
-# Searching for a pattern under any internal node in suffix trees in logn time
+# Searching for a pattern under any internal node in suffix trees
+
+Pattern matching is a fundamental process in most scientific domains. The problem involves finding the starting positions of a given pattern (usually of short length) in a reference stream of data (of considerable length) as either exact or approximate (which allows for mismatches, insertions, or deletions) matching. For exact matching, several data structures built in linear time and space can be used in practice nowadays. The solutions proposed so far for approximate matching are non-linear, impractical, or heuristics. In this work, we propose an index that allows to find any pattern under any internal node in suffix trees in logn time. 
 
 ------------------------------------------------------------- Prerequisite ---------------------------------------------------------------
 * Install bisect library from https://docs.python.org/3/library/bisect.html 
