@@ -589,11 +589,11 @@ def Build_OT_index(tree):
                     current_visited_node.List_of_nodes_suffix_linked_to_me_sorted_by_OT_index_under_OSHR_tree.sort(key=lambda element: (element[0], element[1]))
                     
                 if hasattr(current_visited_node, "List_of_base_suffixes_derived_from_reference_leaf_nodes"):
-                    setattr(current_visited_node, "List_of_base_suffixes_derived_from_reference_leaf_nodes_sorted_by_OT_leaf_index_under_ST", [])
+                    setattr(current_visited_node, "List_of_base_suffixes_derived_from_reference_leaf_nodes_sorted_by_leaf_index_under_ST", [])
                     for base_suffix in current_visited_node.List_of_base_suffixes_derived_from_reference_leaf_nodes:
                         leaf_node_of_previous_node = node = tree.List_of_leaf_suffix_index_to_leaf_memory[base_suffix - current_visited_node.depth - 1]
-                        current_visited_node.List_of_base_suffixes_derived_from_reference_leaf_nodes_sorted_by_OT_leaf_index_under_ST.append((leaf_node_of_previous_node.index_of_leaf_in_ST, leaf_node_of_previous_node.index_of_leaf_in_ST, leaf_node_of_previous_node))
-                    current_visited_node.List_of_base_suffixes_derived_from_reference_leaf_nodes_sorted_by_OT_leaf_index_under_ST.sort(key=lambda element: (element[0], element[1]))
+                        current_visited_node.List_of_base_suffixes_derived_from_reference_leaf_nodes_sorted_by_leaf_index_under_ST.append((leaf_node_of_previous_node.index_of_leaf_in_ST, leaf_node_of_previous_node.index_of_leaf_in_ST, leaf_node_of_previous_node))
+                    current_visited_node.List_of_base_suffixes_derived_from_reference_leaf_nodes_sorted_by_leaf_index_under_ST.sort(key=lambda element: (element[0], element[1]))
                     
                 nodes_stack.pop()
                 children_stack.pop()
@@ -808,18 +808,18 @@ def Run_Mandoiu_algorithm(tree, top_node, bottom_node, starting_node):
         right_OT_index = inter[1]
         if left_OT_index <= starting_node.left_OT_index <= starting_node.right_OT_index <= right_OT_index:
             nn = inter[2]   #node_link_to_top_node_and_is_OSHR_parent_to_starting_node
-            s = len(bottom_node.List_of_base_suffixes_derived_from_reference_leaf_nodes_sorted_by_OT_leaf_index_under_ST)
+            s = len(bottom_node.List_of_base_suffixes_derived_from_reference_leaf_nodes_sorted_by_leaf_index_under_ST)
             if s > 0:
-                right_pos = bisect.bisect_left(bottom_node.List_of_base_suffixes_derived_from_reference_leaf_nodes_sorted_by_OT_leaf_index_under_ST, (nn.index_of_rightmost_leaf_in_ST, nn.index_of_rightmost_leaf_in_ST)) # right_pos bcus we want to find node satisfies the condition starting_node.left_OT_index >= node.left_OT_index and starting_node.right_OT_index <= node.right_OT_index
+                right_pos = bisect.bisect_left(bottom_node.List_of_base_suffixes_derived_from_reference_leaf_nodes_sorted_by_leaf_index_under_ST, (nn.index_of_rightmost_leaf_in_ST, nn.index_of_rightmost_leaf_in_ST)) # right_pos bcus we want to find node satisfies the condition starting_node.left_OT_index >= node.left_OT_index and starting_node.right_OT_index <= node.right_OT_index
                 if right_pos == s:
                     right_pos = right_pos - 1
                     
-                index_of_leaf_in_ST = bottom_node.List_of_base_suffixes_derived_from_reference_leaf_nodes_sorted_by_OT_leaf_index_under_ST[right_pos][0]
-                leaf_node = bottom_node.List_of_base_suffixes_derived_from_reference_leaf_nodes_sorted_by_OT_leaf_index_under_ST[right_pos][2]                
+                index_of_leaf_in_ST = bottom_node.List_of_base_suffixes_derived_from_reference_leaf_nodes_sorted_by_leaf_index_under_ST[right_pos][0]
+                leaf_node = bottom_node.List_of_base_suffixes_derived_from_reference_leaf_nodes_sorted_by_leaf_index_under_ST[right_pos][2]                
                 if right_pos != 0 and not (nn.index_of_leftmost_leaf_in_ST <= index_of_leaf_in_ST <= nn.index_of_rightmost_leaf_in_ST):
                     right_pos = right_pos - 1
-                    index_of_leaf_in_ST = bottom_node.List_of_base_suffixes_derived_from_reference_leaf_nodes_sorted_by_OT_leaf_index_under_ST[right_pos][0]
-                    leaf_node = bottom_node.List_of_base_suffixes_derived_from_reference_leaf_nodes_sorted_by_OT_leaf_index_under_ST[right_pos][2]
+                    index_of_leaf_in_ST = bottom_node.List_of_base_suffixes_derived_from_reference_leaf_nodes_sorted_by_leaf_index_under_ST[right_pos][0]
+                    leaf_node = bottom_node.List_of_base_suffixes_derived_from_reference_leaf_nodes_sorted_by_leaf_index_under_ST[right_pos][2]
                     
                 if nn.index_of_leftmost_leaf_in_ST <= index_of_leaf_in_ST <= nn.index_of_rightmost_leaf_in_ST:
                     result_node = tree.List_of_leaf_suffix_index_to_leaf_memory[leaf_node.idx - (starting_node.depth - top_node.depth) + 1]
@@ -927,6 +927,7 @@ def start():
         while True:
             i += 10
             nn = i * pattern_length
+            print ("nn", nn)
             if nn + pattern_length >= tree.number_leaf_nodes:
                 break
             else:
