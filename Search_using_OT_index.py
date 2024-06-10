@@ -922,7 +922,6 @@ def start():
         while True:
             i += 10
             nn = i * pattern_length
-            print ("nn", nn)
             if nn + pattern_length >= tree.number_leaf_nodes:
                 break
             else:
