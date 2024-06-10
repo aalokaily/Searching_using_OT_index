@@ -1,6 +1,6 @@
-# Searching for a pattern under any internal node in suffix trees
+# Searching for a string under any internal node in suffix trees
 
-Pattern matching is a fundamental process in most scientific domains. The problem involves finding the starting positions of a given pattern (usually of short length) in a reference stream of data (of considerable length) as either exact or approximate (which allows for mismatches, insertions, or deletions) matching. For exact matching, several data structures built in linear time and space can be used in practice nowadays. The solutions proposed so far for approximate matching are non-linear, impractical, or heuristics. In this work, we propose an index that allows to find any pattern under any internal node in suffix trees in logn time. 
+Pattern matching is a fundamental process in most scientific domains. The problem involves finding the starting positions of a given pattern (a string usually of short length) in a reference stream of data (of considerable length) as either exact or approximate (which allows for mismatches, insertions, or deletions) matching. For exact matching, several data structures built in linear time and space can be used in practice nowadays. The solutions proposed so far for approximate matching are non-linear, impractical, or heuristics. In this work, we propose an index that allows to find any string under any internal node in suffix trees in logn time. 
 
 ------------------------------------------------------------- Prerequisite ---------------------------------------------------------------
 * Install bisect library from https://docs.python.org/3/library/bisect.html 
@@ -34,7 +34,7 @@ python3 convert_fasta_file_to_one_line_file $file.fasta > converted_fasta_file.o
 ```
 ----------------------------------------------------------- Running algorithms -----------------------------------------------------------
 
-The input for the tools is the converted fasta file. What patterns are searched for is described at ....
+The input for the tools is the converted fasta file. What strings are searched for is described at ....
 
 Using the walk process:
 
@@ -45,7 +45,7 @@ python3 Search_by_walk.py converted_fasta_file.oneline
 Sample Output
 ```python
 ==============================================
-Length of pattern --------  23
+Length of string --------  23
 Reading input data took 0.08015 seconds
 ------------------------------------------------------------------------------------------
 Length_threshold --------  0
@@ -82,7 +82,7 @@ python3 Search_using_OT_index.py converted_fasta_file.oneline
 Sample Output
 ```python
 ==============================================
-Length of pattern --------  23
+Length of string --------  23
 Reading input data took 0.03905 seconds
 ------------------------------------------------------------------------------------------
 Length_threshold --------  0
