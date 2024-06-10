@@ -634,11 +634,6 @@ def Build_OT_index(tree):
     print ("***** Phase 3 finished in", round((time.time() - start), 5), "seconds\n")
 
 
-        
-    start = time.time()
-    phase_3_for_OT_indexing_of_base_paths(tree)
-    print ("***** Phase 3 finished in", round((time.time() - start), 5), "seconds\n")
-    
     
     def phase_4_for_OT_indexing_of_base_paths(tree):
         #map base paths base nodes for Hanadi and Srivastava node to same path starting from root of ST
