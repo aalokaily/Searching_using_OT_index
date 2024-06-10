@@ -562,9 +562,7 @@ def Build_OT_index(tree):
                         
                         
                     for bottom_base_node in bottom_base_nodes_that_need_to_be_indexed:
-                        if str(current_visited_node) + "-" + str(bottom_base_node) in Hanadi_and_Srivastava_nodes_pairing:
-                            del Hanadi_and_Srivastava_nodes_pairing[str(current_visited_node) + "-" + str(bottom_base_node)]
-                        else:
+                        if str(current_visited_node) + "-" + str(bottom_base_node) not in Hanadi_and_Srivastava_nodes_pairing:
                             Number_of_collected_base_paths += 1
                             suffix_starting_from_current_visited_node = tree.List_of_left_to_right_suffix_indexes[bottom_base_node.index_of_leftmost_leaf_in_ST] + current_visited_node.depth
                             index_key_of_suffix_starting_from_current_visited_node_in_ST = tree.List_of_leaf_suffix_index_to_leaf_memory[suffix_starting_from_current_visited_node].index_of_leaf_in_ST 
